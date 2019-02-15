@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# eipirkka.info 
+
+Web application that detects if a picture includes a can of Pirkka III beer 🍺
 
 ## Available Scripts
 
