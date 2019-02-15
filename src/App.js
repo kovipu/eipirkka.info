@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-
 function ResultFooter({ label }) {
   switch (label) {
     case 'pirkka3':
@@ -53,7 +52,7 @@ class App extends Component {
         <header className="App-header"><img className="App-logo" src="https://via.placeholder.com/64/09f/fff.png%20C/O%20https://placeholder.com/"></img></header>
         <div className="App-content">
         </div>
-        <ResultFooter label={currentLabel} />
+        <ResultFooter label={'pirkka3'} />
       </div>
     );
   }
