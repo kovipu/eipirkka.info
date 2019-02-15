@@ -12,3 +12,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.react-html5-camera-photo,
+.react-html5-camera-photo > video {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.react-html5-camera-photo > video {
+}
+
+.btn {
+  padding: 1rem 1.25rem;
+  border-radius: 15px;
+  border: 0;
+}
