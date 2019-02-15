@@ -3,7 +3,6 @@ import logo from './logo.svg';
 import './App.css';
 import CameraView from './CameraView/CameraView';
 
-
 function ResultFooter({ label }) {
   switch (label) {
     case 'pirkka3':
@@ -55,7 +54,7 @@ class App extends Component {
         <div className="App-content">
         <CameraView/>
         </div>
-        <ResultFooter label={currentLabel} />
+        <ResultFooter label={'pirkka3'} />
       </div>
     );
   }
