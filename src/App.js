@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import Camera from 'react-html5-camera-photo';
-import 'react-html5-camera-photo/build/css/index.css';
 
 function ResultFooter({ label }) {
   switch (label) {
@@ -54,9 +52,6 @@ class App extends Component {
       <div className="App">
         <header className="App-header"><img className="App-logo" src="https://via.placeholder.com/64/09f/fff.png%20C/O%20https://placeholder.com/"></img></header>
         <div className="App-content">
-          <Camera
-            onTakePhoto={(dataUri) => { this.onTakePhoto(dataUri); }}
-          />
         </div>
         <ResultFooter label={currentLabel} />
       </div>
