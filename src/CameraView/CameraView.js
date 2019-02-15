@@ -1,10 +1,12 @@
 import React from 'react';
 
+import './CameraView.css';
+
 class CameraView extends React.Component {
 
   constructor(props) {
     super(props);
-
+    this.videoRef = React.createRef();
     this.state = {
       streamSource: null,
     }
@@ -12,9 +14,7 @@ class CameraView extends React.Component {
 
   createVideoSource = (stream) => {
     console.log(stream);
-    const videoSourceUrl = URL.createObjectURL(stream);
-    console.log(videoSourceUrl);
-    this.setState({streamSource: videoSourceUrl});
+    this.videoRef.current.srcObject = stream;
   }
 
   componentDidMount() {
@@ -30,7 +30,7 @@ class CameraView extends React.Component {
   render() {
     return (
       <div className="CameraView">
-        <video autoPlay style={{height: '500px', width: '100%'}} src={this.state.streamSource}/>
+        <video className="CameraView-video" autoPlay={true} ref={this.videoRef}/>
         <button className="CameraView-button">Capture</button>
       </div>
     );

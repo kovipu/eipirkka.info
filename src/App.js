@@ -35,16 +35,6 @@ class App extends Component {
     };
   }
 
-  onTakePhoto(dataUri) {
-    console.log('takePhoto', dataUri);
-
-    if (Math.random() >= 0.5) {
-      this.setState({currentLabel: 'none'})
-    } else {
-      this.setState({currentLabel: 'pirkka3'})
-    }
-  }
-
   render() {
     const { currentLabel } = this.state;
 
