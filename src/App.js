@@ -109,7 +109,6 @@ class App extends Component {
 
   render() {
     const { showWelcomeView, showDetails, lastResponse } = this.state;
-    console.log('state', this.state)
 
     const hasResponse = lastResponse.displayName;
 
