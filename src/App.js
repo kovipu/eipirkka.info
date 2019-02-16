@@ -4,10 +4,6 @@ import CameraView from './CameraView/CameraView';
 import InfoView from './InfoView/InfoView';
 import ResultFooter from './ResultFooter/ResultFooter';
 
-const REQUEST_SUCCESS = 'request_success';
-const REQUEST_PENDING = 'request_pending';
-const REQUEST_FAILURE = 'request_failure';
-
 const initialState = {
   currentLabel: null,
   image: null,
@@ -15,6 +11,15 @@ const initialState = {
   showDetails: false,
   lastResponse: {}
 };
+
+function dataURLtoBlob(dataurl) {
+  var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+      bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+  while(n--){
+      u8arr[n] = bstr.charCodeAt(n);
+  }
+  return new Blob([u8arr], {type:mime});
+}
 
 class App extends Component {
 
@@ -24,18 +29,26 @@ class App extends Component {
   }
 
   submitData = (data) => {
-    setTimeout(() => {
-      this.setState({currentLabel: 'pirkka3'});
-    }, 1000)
-    fetch('/image', {
+    const blop = dataURLtoBlob(data);
+    const imageData = {
+      uri: data,
+      type: 'image/png',
+      name: 'image.png',
+    }
+    let formData = new FormData();
+    formData.append('image', blop);
+
+    console.log(imageData, formData);
+    fetch('http://localhost:3001/predict', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'multipart/form-data'
-      },
-      body: data
+      body: formData,
+      mode: 'cors'
     })
-    .then(response => response.json())
+    .then(response => {
+      return response.json();
+    })
     .then(responseData => {
+      console.log('response', responseData);
       this.setState({lastResponse: responseData})
     })
     .catch(err => {
@@ -56,28 +69,54 @@ class App extends Component {
   }
 
   renderCameraView() {
-    const { currentLabel } = this.state;
+    const { lastResponse } = this.state;
+    const { displayName } = lastResponse;
+    console.log('Last response', lastResponse);
     return (
       <React.Fragment>
+<<<<<<< HEAD
+=======
+        <header className="App-header">
+          <img
+            className="App-logo"
+            src="https://via.placeholder.com/64/09f/fff.png%20C/O%20https://placeholder.com/" />
+         </header>
+>>>>>>> 34fa767e7e2acf22faf2bb1adb69efcb470c9c2f
         <div className="App-content">
         <CameraView
           onClear={this.clearState}
           onPhoto={this.submitData}/>
         </div>
-        <ResultFooter
-          onShowDetails={this.showDetails}
-          label={currentLabel}/>
+        {displayName && (
+          <ResultFooter
+            onShowDetails={this.showDetails}
+            label={displayName}/>
+        )}
       </React.Fragment>
     )
   }
 
+  getBorderAccent = () => {
+    const { lastResponse } = this.state;
+    if (!lastResponse.displayName) {
+      return '#fd79a8';
+    }
+    return lastResponse.displayName === 'pirkka3'
+      ? '#2ecc71'
+      : '#e74c3c';
+  }
+
   render() {
-    const { showDetails } = this.state;
+    const { showDetails, lastResponse } = this.state;
+
+    const hasResponse = lastResponse.displayName;
 
     return (
-      <div className="App">
+      <div className="App" style={{borderColor: this.getBorderAccent()}}>
         {this.renderCameraView()}
-        <InfoView onClose={this.closeDetails} isHidden={!showDetails} />
+        { hasResponse && (
+          <InfoView onClose={this.closeDetails} isHidden={!showDetails} />
+        )}
       </div>
     );
   }

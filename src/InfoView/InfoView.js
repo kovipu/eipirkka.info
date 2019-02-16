@@ -12,7 +12,7 @@ class InfoView extends React.Component {
   render() {
     const { onClose, isHidden } = this.props;
     return (
-      <div className={`InfoView ${isHidden ? 'InfoView--hidden' : ''}`}>
+      <div className={`InfoView ${!isHidden ? 'InfoView--visible' : ''}`}>
         <IconButton onClick={onClose} className="InfoView-close" icon="times" />
         <div className="InfoView-cover" style={coverStyle}></div>
         <div className="InfoView-content">
