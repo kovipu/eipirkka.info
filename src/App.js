@@ -9,7 +9,8 @@ const initialState = {
   image: null,
   httpRequestStatus: '',
   showDetails: false,
-  lastResponse: {}
+  lastResponse: {},
+  isLoading: false
 };
 
 function dataURLtoBlob(dataurl) {
@@ -29,6 +30,7 @@ class App extends Component {
   }
 
   submitData = (data) => {
+    this.setState({isLoading: true})
     const blop = dataURLtoBlob(data);
     const imageData = {
       uri: data,
@@ -47,9 +49,10 @@ class App extends Component {
       return response.json();
     })
     .then(responseData => {
-      this.setState({lastResponse: responseData})
+      this.setState({lastResponse: responseData, isLoading: false})
     })
     .catch(err => {
+      this.setState({isLoading: false})
       throw Error(err);
     })
   }
@@ -67,13 +70,14 @@ class App extends Component {
   }
 
   renderCameraView() {
-    const { lastResponse } = this.state;
+    const { lastResponse, isLoading } = this.state;
     const { displayName } = lastResponse;
     console.log('Last response', lastResponse);
     return (
       <React.Fragment>
         <div className="App-content">
         <CameraView
+          isLoading={isLoading}
           onClear={this.clearState}
           onPhoto={this.submitData}/>
         </div>
