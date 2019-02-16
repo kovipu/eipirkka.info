@@ -1,0 +1,35 @@
+.InfoView-content {
+    padding: 20px;
+}
+
+.InfoView-cover {
+    background-size: cover;
+    height: 40vh;
+}
+
+.InfoView-title {
+    background-size: cover;
+    margin-top: 0;
+    margin-bottom: 13px;
+}
+
+.InfoView-description {
+    margin-bottom: 13px;
+}
+
+.InfoView-close {
+    width: 48px;
+    height: 48px;
+    text-align: center;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: whitesmoke;
+    background: #fd79a8;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+}
