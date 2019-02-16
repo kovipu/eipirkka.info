@@ -104,12 +104,16 @@ class App extends Component {
   }
 
   render() {
-    const { showDetails } = this.state;
+    const { showDetails, lastResponse } = this.state;
+
+    const hasResponse = lastResponse.displayName;
 
     return (
       <div className="App" style={{borderColor: this.getBorderAccent()}}>
         {this.renderCameraView()}
-        <InfoView onClose={this.closeDetails} isHidden={!showDetails} />
+        { hasResponse && (
+          <InfoView onClose={this.closeDetails} isHidden={!showDetails} />
+        )}
       </div>
     );
   }

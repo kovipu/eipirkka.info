@@ -4,12 +4,15 @@
     background: #282c34;
     top: 0px;
     bottom: 0px;
-    transform: translateX(0);
-    transition: transform .3s ease-in-out;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform .3s ease-in-out, opacity .5s ease-in-out;
 }
 
-.InfoView--hidden {
-    transform: translateX(100%);
+.InfoView--visible {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .InfoView-content {
@@ -37,12 +40,3 @@
     right: 20px;
 }
 
-@keyframes slideLeft {
-    0% {
-        transform: translateX(100%);
-    }
-
-    100% {
-        transform: translateX(0);
-    }
-  }
