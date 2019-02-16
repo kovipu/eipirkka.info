@@ -74,14 +74,6 @@ class App extends Component {
     console.log('Last response', lastResponse);
     return (
       <React.Fragment>
-<<<<<<< HEAD
-=======
-        <header className="App-header">
-          <img
-            className="App-logo"
-            src="https://via.placeholder.com/64/09f/fff.png%20C/O%20https://placeholder.com/" />
-         </header>
->>>>>>> 34fa767e7e2acf22faf2bb1adb69efcb470c9c2f
         <div className="App-content">
         <CameraView
           onClear={this.clearState}
