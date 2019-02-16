@@ -1,6 +1,8 @@
 import React from 'react';
 
 import './CameraView.css';
+import ShutterButton from '../common/ShutterButton';
+import IconButton from '../common/IconButton';
 
 class CameraView extends React.Component {
 
@@ -65,10 +67,12 @@ class CameraView extends React.Component {
     const { photoTaken } = this.state;
     return (
       <div className="CameraView">
-        <button hidden={!photoTaken} onClick={this.clearPhoto} className="CameraView-clearButton">Uusi kuva</button>
+        <IconButton hidden={!photoTaken} onClick={this.clearPhoto} className="CameraView-clearButton" icon="times" />
         <canvas hidden={!photoTaken} id="canvasHack" className="CameraView-video" ref={this.canvasRef} />
         <video hidden={photoTaken} className="CameraView-video" autoPlay={true} ref={this.videoRef}/>
-        <button hidden={photoTaken} className="CameraView-snapButton" onClick={this.takeSnapshot}>Capture</button>
+        <div className="CameraView-snapButton">
+          <ShutterButton hidden={photoTaken} onClick={this.takeSnapshot} icon="camera" />
+        </div>
       </div>
     );
   }

@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '../common/Button';
 import './ResultFooter.css';
 
 export default ({ label, onShowDetails }) => {
@@ -6,14 +7,14 @@ export default ({ label, onShowDetails }) => {
       case 'pirkka3':
         return (
           <footer className="ResultFooter ResultFooter--success">
-            <div>Pirkka III-olut 4,5%</div>
-            <button onClick={onShowDetails} className='btn'>Lue lisää</button>
+            <div className="ResultFooter-title">Pirkka III-olut 4,5%</div>
+            <Button onClick={onShowDetails} className='btn'>Lue lisää</Button>
           </footer>
         )
       case 'none':
         return (
           <footer className="ResultFooter ResultFooter--failure">
-            <div>Ei oo pirkkaa!</div>
+            <div className="ResultFooter-title">Ei oo pirkkaa!</div>
           </footer>
         );
       default:

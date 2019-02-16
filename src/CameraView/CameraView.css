@@ -17,13 +17,18 @@
 .CameraView-snapButton {
   z-index: 2;
   position: absolute;
-  bottom: 100px;
-  right: 20px;
+  bottom: 48px;
+  right: 0;
+  left: 0;
+}
+
+.CameraView-snapButton > .ShutterButton {
+  margin: 0 auto;
 }
 
 .CameraView-clearButton {
   z-index: 2;
   position: absolute;
   top: 20px;
-  right: 20px;
+  right: 16px;
 }

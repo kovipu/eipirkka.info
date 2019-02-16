@@ -1,0 +1,13 @@
+.ShutterButton {
+    width: 56px;
+    height: 56px;
+    text-align: center;
+    cursor: pointer;
+    color: #586173;
+    background: lightgrey;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+}

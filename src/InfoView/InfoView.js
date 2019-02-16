@@ -1,5 +1,6 @@
 import React from 'react';
 import './InfoView.css';
+import IconButton from '../common/IconButton';
 
 // TODO: load data dynamically
 
@@ -12,7 +13,7 @@ class InfoView extends React.Component {
     const { onClose, isHidden } = this.props;
     return (
       <div className={`InfoView ${isHidden ? 'InfoView--hidden' : ''}`}>
-        <div role="button" onClick={onClose} className="InfoView-close"><i class="fas fa-times fa-2x"></i></div>
+        <IconButton onClick={onClose} className="InfoView-close" icon="times" />
         <div className="InfoView-cover" style={coverStyle}></div>
         <div className="InfoView-content">
           <h1 className="InfoView-title">Pirkka III-olut 4,5%</h1>

@@ -16,6 +16,10 @@
 .ResultFooter--success, .ResultFooter--failure {
 }
 
+.ResultFooter-title {
+  margin-bottom: 8px;
+}
+
 @keyframes slideIn {
   0% {
     transform: translateY(100px);

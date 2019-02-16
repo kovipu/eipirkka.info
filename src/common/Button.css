@@ -1,7 +1,7 @@
 .btn {
     cursor: pointer;
-    padding: .75rem 1rem;
-    border-radius: 15px;
+    padding: .75rem 2.5rem;
+    border-radius: 100px;
     border: 0;
     display: inline-block;
     font-weight: 400;
@@ -19,6 +19,10 @@
     border-left-color: transparent;
     font-size: 1rem;
     line-height: 1.5;
-    border-radius: .25rem;
+    background: #fd79a8;
+    color: white;
+    font-weight: 600;
+    letter-spacing: .025rem;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
 }
