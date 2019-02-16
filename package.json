@@ -7,6 +7,7 @@
   },
   "private": true,
   "dependencies": {
+    "http-server": "^0.11.1",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "react-scripts": "2.1.5"
@@ -17,7 +18,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "./node_modules/.bin/eslint ./src/**/*.js",
-    "lint-fix": "./node_modules/.bin/eslint ./src/**/*.js --fix"
+    "lint-fix": "./node_modules/.bin/eslint ./src/**/*.js --fix",
+    "server": "npm run build && http-server ./build"
   },
   "eslintConfig": {
     "extends": "react-app"
