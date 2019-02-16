@@ -59,7 +59,6 @@ class App extends Component {
     const { currentLabel } = this.state;
     return (
       <React.Fragment>
-        <header className="App-header"><img className="App-logo" src="https://via.placeholder.com/64/09f/fff.png%20C/O%20https://placeholder.com/"></img></header>
         <div className="App-content">
         <CameraView
           onClear={this.clearState}
