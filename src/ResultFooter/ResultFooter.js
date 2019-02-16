@@ -11,13 +11,11 @@ export default ({ label, onShowDetails }) => {
             <Button onClick={onShowDetails} className='btn'>Lue lisää</Button>
           </footer>
         )
-      case 'none':
+      default:
         return (
           <footer className="ResultFooter ResultFooter--failure">
             <div className="ResultFooter-title">Ei oo pirkkaa!</div>
           </footer>
         );
-      default:
-          return <footer></footer>;
     }
   }
