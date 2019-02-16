@@ -33,8 +33,10 @@ class CameraView extends React.Component {
     const { onPhoto } = this.props;
     const canvas = this.canvasRef.current;
     const video = this.videoRef.current;
+    canvas.height = video.videoHeight;
+    canvas.width = video.videoWidth;
     const ctx = canvas.getContext('2d');
-    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    ctx.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
 
     // HACK: Bypassing React here to force the image for us.
     const image = document
@@ -48,7 +50,7 @@ class CameraView extends React.Component {
 
   componentDidMount() {
     if (navigator.mediaDevices.getUserMedia) {
-      navigator.mediaDevices.getUserMedia({video: true})
+      navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
         .then(this.createVideoSource)
         .catch((err) => {
           console.log('Error', err);
@@ -61,7 +63,7 @@ class CameraView extends React.Component {
     return (
       <div className="CameraView">
         <IconButton hidden={!photoTaken} onClick={this.clearPhoto} className="CameraView-clearButton" icon="times" />
-        <canvas hidden={!photoTaken} id="canvasHack" className="CameraView-video" ref={this.canvasRef} />
+        <canvas hidden={!photoTaken} id="canvasHack" className="CameraView-canvas" ref={this.canvasRef} />
         <video hidden={photoTaken} className="CameraView-video" autoPlay={true} ref={this.videoRef}/>
         <div className="CameraView-snapButton">
           <ShutterButton hidden={photoTaken} onClick={this.takeSnapshot} icon="camera" />
