@@ -13,3 +13,17 @@
   height: 100%;
   width: 100%;
 }
+
+.CameraView-snapButton {
+  z-index: 2;
+  position: absolute;
+  bottom: 100px;
+  right: 20px;
+}
+
+.CameraView-clearButton {
+  z-index: 2;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
