@@ -5,7 +5,7 @@ import './WelcomeView.css';
 export default ({isVisible, onDismiss}) => (
   <div className={`WelcomeView WelcomeView-background ${isVisible ? 'WelcomeView--visible' : ''}`}>
     <div className="WelcomeView-content">
-      <div className="WelcomeView-header">Tervetuloa <strong>eipirkka</strong>-palveluun! 🍺</div>
+      <div className="WelcomeView-info">Tervetuloa <strong>eipirkka</strong>-palveluun! 🍺</div>
 
       <div className="WelcomeView-info">
         Tämä sovellus tunnistaa kuvasta <strong>Pirkka III</strong> oluttölkin.
