@@ -1,0 +1,41 @@
+.WelcomeView {
+  z-index: 10;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  transform: translateY(-100%);
+  transition: transform .4s ease-in-out, opacity .5s ease-in-out;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.WelcomeView--visible {
+  transform: translateY(0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.WelcomeView-content {
+  background-color: white;
+  box-sizing: border-box;
+  color: black;
+  z-index: 10;
+  height: 60vh;
+  max-height: 550px;
+  width: 85vw;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: auto;
+  border-radius: 10px;
+  padding: 22px;
+
+}
+
+.WelcomeView-info {
+  margin: 0 16px;
+}
+
+.WelcomeView-header {
+  font-size: 1.2em;
+}

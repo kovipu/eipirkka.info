@@ -3,11 +3,13 @@ import './App.css';
 import CameraView from './CameraView/CameraView';
 import InfoView from './InfoView/InfoView';
 import ResultFooter from './ResultFooter/ResultFooter';
+import WelcomeView from './WelcomeView/WelcomeView';
 
 const initialState = {
   currentLabel: null,
   image: null,
   httpRequestStatus: '',
+  showWelcomeView: true,
   showDetails: false,
   lastResponse: {},
   isLoading: false
@@ -58,7 +60,7 @@ class App extends Component {
   }
 
   clearState = () => {
-    this.setState(initialState);
+    this.setState({ ...initialState, showWelcomeView: false });
   }
 
   showDetails = () => {
@@ -67,6 +69,11 @@ class App extends Component {
 
   closeDetails = () => {
     this.setState({showDetails: false});
+  }
+
+  closeWelcomeView = () => {
+    console.log('click')
+    this.setState({showWelcomeView: false});
   }
 
   renderCameraView() {
@@ -101,13 +108,17 @@ class App extends Component {
   }
 
   render() {
-    const { showDetails, lastResponse } = this.state;
+    const { showWelcomeView, showDetails, lastResponse } = this.state;
+    console.log('state', this.state)
 
     const hasResponse = lastResponse.displayName;
 
     return (
       <div className="App" style={{borderColor: this.getBorderAccent()}}>
+        <WelcomeView isVisible={showWelcomeView} onDismiss={this.closeWelcomeView} />
+
         {this.renderCameraView()}
+
         { hasResponse && (
           <InfoView onClose={this.closeDetails} isHidden={!showDetails} />
         )}
