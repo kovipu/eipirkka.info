@@ -7,16 +7,18 @@ const REQUEST_SUCCESS = 'request_success';
 const REQUEST_PENDING = 'request_pending';
 const REQUEST_FAILURE = 'request_failure';
 
+const initialState = {
+  viewId: 'home',
+  currentLabel: null,
+  image: null,
+  httpRequestStatus: '',
+};
+
 class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      viewId: 'home',
-      currentLabel: null,
-      image: null,
-      httpRequestStatus: '',
-    };
+    this.state = initialState;
   }
 
   submitData = (data) => {
@@ -26,6 +28,10 @@ class App extends Component {
     }, 1000)
   }
 
+  clearState = () => {
+    this.setState(initialState);
+  }
+
   render() {
     const { currentLabel } = this.state;
 
@@ -33,7 +39,9 @@ class App extends Component {
       <div className="App">
         <header className="App-header"><img className="App-logo" src="https://via.placeholder.com/64/09f/fff.png%20C/O%20https://placeholder.com/"></img></header>
         <div className="App-content">
-        <CameraView callback={this.submitData}/>
+        <CameraView
+          clearCallback={this.clearState}
+          photoCallback={this.submitData}/>
         </div>
         <ResultFooter label={currentLabel} />
       </div>

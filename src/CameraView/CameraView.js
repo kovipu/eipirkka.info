@@ -28,8 +28,14 @@ class CameraView extends React.Component {
     ctx.fillRect(0,0,canvas.width, canvas.height);
   }
 
+  clearPhoto = () => {
+    const { clearCallback } = this.props;
+    this.setState({photoTaken: false});
+    clearCallback();
+  }
+
   takeSnapshot = () => {
-    const { callback } = this.props;
+    const { photoCallback } = this.props;
     const canvas = this.canvasRef.current;
     const video = this.videoRef.current;
     const ctx = canvas.getContext('2d');
@@ -42,7 +48,7 @@ class CameraView extends React.Component {
     // I'm sorry.
 
     this.setState({photoTaken: true});
-    callback(image);
+    photoCallback(image);
   }
 
   componentDidMount() {
@@ -52,18 +58,17 @@ class CameraView extends React.Component {
         .catch((err) => {
           console.log('Error', err);
         });
-      this.initializeCanvas();
     }
   }
-
 
   render() {
     const { photoTaken } = this.state;
     return (
       <div className="CameraView">
+        <button hidden={!photoTaken} onClick={this.clearPhoto} className="CameraView-clearButton">Uusi kuva</button>
         <canvas hidden={!photoTaken} id="canvasHack" className="CameraView-video" ref={this.canvasRef} />
         <video hidden={photoTaken} className="CameraView-video" autoPlay={true} ref={this.videoRef}/>
-        <button hidden={photoTaken} className="CameraView-button" onClick={this.takeSnapshot}>Capture</button>
+        <button hidden={photoTaken} className="CameraView-snapButton" onClick={this.takeSnapshot}>Capture</button>
       </div>
     );
   }

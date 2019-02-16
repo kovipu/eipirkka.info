@@ -14,9 +14,16 @@
   width: 100%;
 }
 
-.CameraView-button {
+.CameraView-snapButton {
   z-index: 2;
   position: absolute;
-  left: 200px;
-  top: 200px;
+  bottom: 100px;
+  right: 20px;
+}
+
+.CameraView-clearButton {
+  z-index: 2;
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
