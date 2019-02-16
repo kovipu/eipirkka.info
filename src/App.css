@@ -3,6 +3,10 @@
   background: #282c34;
   display: flex;
   flex-direction: column;
+  border-top: 8px solid #fd79a8;
+  border-bottom: 8px solid #fd79a8;
+  box-sizing: border-box;
+  color: whitesmoke;
 }
 
 .App-logo {

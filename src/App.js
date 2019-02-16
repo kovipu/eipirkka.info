@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import CameraView from './CameraView/CameraView';
+import InfoView from './InfoView/InfoView';
 import ResultFooter from './ResultFooter/ResultFooter';
 
 const REQUEST_SUCCESS = 'request_success';
@@ -8,10 +9,10 @@ const REQUEST_PENDING = 'request_pending';
 const REQUEST_FAILURE = 'request_failure';
 
 const initialState = {
-  viewId: 'home',
   currentLabel: null,
   image: null,
   httpRequestStatus: '',
+  showDetails: false,
 };
 
 class App extends Component {
@@ -32,18 +33,34 @@ class App extends Component {
     this.setState(initialState);
   }
 
-  render() {
-    const { currentLabel } = this.state;
+  showDetails = () => {
+    this.setState({showDetails: true});
+  }
 
+  renderCameraView() {
+    const { currentLabel } = this.state;
     return (
-      <div className="App">
+      <React.Fragment>
         <header className="App-header"><img className="App-logo" src="https://via.placeholder.com/64/09f/fff.png%20C/O%20https://placeholder.com/"></img></header>
         <div className="App-content">
         <CameraView
-          clearCallback={this.clearState}
-          photoCallback={this.submitData}/>
+          onClear={this.clearState}
+          onPhoto={this.submitData}/>
         </div>
-        <ResultFooter label={currentLabel} />
+        <ResultFooter onShowDetails={this.showDetails} label={currentLabel} />
+      </React.Fragment>
+    )
+  }
+
+  render() {
+    const { showDetails } = this.state;
+
+    return (
+      <div className="App">
+      {showDetails
+        ? <InfoView onClose={this.clearState} />
+        : this.renderCameraView()
+      }
       </div>
     );
   }

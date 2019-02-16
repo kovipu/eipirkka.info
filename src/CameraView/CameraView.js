@@ -29,13 +29,13 @@ class CameraView extends React.Component {
   }
 
   clearPhoto = () => {
-    const { clearCallback } = this.props;
+    const { onClear } = this.props;
     this.setState({photoTaken: false});
-    clearCallback();
+    onClear();
   }
 
   takeSnapshot = () => {
-    const { photoCallback } = this.props;
+    const { onPhoto } = this.props;
     const canvas = this.canvasRef.current;
     const video = this.videoRef.current;
     const ctx = canvas.getContext('2d');
@@ -48,7 +48,7 @@ class CameraView extends React.Component {
     // I'm sorry.
 
     this.setState({photoTaken: true});
-    photoCallback(image);
+    onPhoto(image);
   }
 
   componentDidMount() {
