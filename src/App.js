@@ -38,7 +38,6 @@ class App extends Component {
     let formData = new FormData();
     formData.append('image', blop);
 
-    console.log(imageData, formData);
     fetch(`${process.env.REACT_APP_API_URL || 'http://localhost:3001'}/predict`, {
       method: 'POST',
       body: formData,
@@ -48,7 +47,6 @@ class App extends Component {
       return response.json();
     })
     .then(responseData => {
-      console.log('response', responseData);
       this.setState({lastResponse: responseData})
     })
     .catch(err => {
