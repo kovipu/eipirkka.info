@@ -9,5 +9,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
 }
