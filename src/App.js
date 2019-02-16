@@ -13,6 +13,7 @@ const initialState = {
   image: null,
   httpRequestStatus: '',
   showDetails: false,
+  lastResponse: {}
 };
 
 class App extends Component {
@@ -23,10 +24,23 @@ class App extends Component {
   }
 
   submitData = (data) => {
-    console.log('Data received', data);
     setTimeout(() => {
       this.setState({currentLabel: 'pirkka3'});
     }, 1000)
+    fetch('/image', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      },
+      body: data
+    })
+    .then(response => response.json())
+    .then(responseData => {
+      this.setState({lastResponse: responseData})
+    })
+    .catch(err => {
+      throw Error(err);
+    })
   }
 
   clearState = () => {

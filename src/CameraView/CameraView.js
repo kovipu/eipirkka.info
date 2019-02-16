@@ -23,13 +23,6 @@ class CameraView extends React.Component {
     this.videoRef.current.srcObject = stream;
   }
 
-  initializeCanvas = () => {
-    const canvas = this.canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    ctx.fillStyle = '#444444';
-    ctx.fillRect(0,0,canvas.width, canvas.height);
-  }
-
   clearPhoto = () => {
     const { onClear } = this.props;
     this.setState({photoTaken: false});
