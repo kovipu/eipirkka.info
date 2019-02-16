@@ -19,10 +19,11 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
+  submitData = (data) => {
+    console.log('Data received', data);
     setTimeout(() => {
       this.setState({currentLabel: 'pirkka3'});
-    }, 2000)
+    }, 1000)
   }
 
   render() {
@@ -32,7 +33,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header"><img className="App-logo" src="https://via.placeholder.com/64/09f/fff.png%20C/O%20https://placeholder.com/"></img></header>
         <div className="App-content">
-        <CameraView/>
+        <CameraView callback={this.submitData}/>
         </div>
         <ResultFooter label={currentLabel} />
       </div>

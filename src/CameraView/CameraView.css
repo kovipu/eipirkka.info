@@ -13,3 +13,10 @@
   height: 100%;
   width: 100%;
 }
+
+.CameraView-button {
+  z-index: 2;
+  position: absolute;
+  left: 200px;
+  top: 200px;
+}
