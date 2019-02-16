@@ -8,12 +8,20 @@
   bottom: 0px;
   left: 0px;
   right: 0px;
-  transition: all .2s ease-in-out;
+  animation: slideIn .1s ease-out;
   min-height: 100px;
-  transform: translateY(-300px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .ResultFooter--success, .ResultFooter--failure {
-  transform: translateY(0px)
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(100px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
 }

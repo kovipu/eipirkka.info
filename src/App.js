@@ -37,6 +37,10 @@ class App extends Component {
     this.setState({showDetails: true});
   }
 
+  closeDetails = () => {
+    this.setState({showDetails: false});
+  }
+
   renderCameraView() {
     const { currentLabel } = this.state;
     return (
@@ -47,7 +51,9 @@ class App extends Component {
           onClear={this.clearState}
           onPhoto={this.submitData}/>
         </div>
-        <ResultFooter onShowDetails={this.showDetails} label={currentLabel} />
+        <ResultFooter
+          onShowDetails={this.showDetails}
+          label={currentLabel}/>
       </React.Fragment>
     )
   }
@@ -57,10 +63,8 @@ class App extends Component {
 
     return (
       <div className="App">
-      {showDetails
-        ? <InfoView onClose={this.clearState} />
-        : this.renderCameraView()
-      }
+        {this.renderCameraView()}
+        <InfoView onClose={this.closeDetails} isHidden={!showDetails} />
       </div>
     );
   }

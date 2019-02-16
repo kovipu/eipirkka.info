@@ -9,9 +9,9 @@ const coverStyle = {
 
 class InfoView extends React.Component {
   render() {
-    const { onClose } = this.props;
+    const { onClose, isHidden } = this.props;
     return (
-      <div className="InfoView">
+      <div className={`InfoView ${isHidden ? 'InfoView--hidden' : ''}`}>
         <div role="button" onClick={onClose} className="InfoView-close"><i class="fas fa-times fa-2x"></i></div>
         <div className="InfoView-cover" style={coverStyle}></div>
         <div className="InfoView-content">

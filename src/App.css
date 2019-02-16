@@ -7,6 +7,8 @@
   border-bottom: 8px solid #fd79a8;
   box-sizing: border-box;
   color: whitesmoke;
+  position: relative;
+  overflow: hidden;
 }
 
 .App-logo {

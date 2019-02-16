@@ -1,3 +1,17 @@
+.InfoView {
+    position: absolute;
+    z-index: 3;
+    background: #282c34;
+    top: 0px;
+    bottom: 0px;
+    transform: translateX(0);
+    transition: transform .3s ease-in-out;
+}
+
+.InfoView--hidden {
+    transform: translateX(100%);
+}
+
 .InfoView-content {
     padding: 20px;
 }
@@ -31,5 +45,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
+
+@keyframes slideLeft {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+  }
