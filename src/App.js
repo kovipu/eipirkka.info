@@ -3,6 +3,10 @@ import './App.css';
 import CameraView from './CameraView/CameraView';
 import ResultFooter from './ResultFooter/ResultFooter';
 
+const REQUEST_SUCCESS = 'request_success';
+const REQUEST_PENDING = 'request_pending';
+const REQUEST_FAILURE = 'request_failure';
+
 class App extends Component {
 
   constructor(props) {
@@ -11,7 +15,7 @@ class App extends Component {
       viewId: 'home',
       currentLabel: null,
       image: null,
-
+      httpRequestStatus: '',
     };
   }
 

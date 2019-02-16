@@ -8,6 +8,8 @@ class CameraView extends React.Component {
     super(props);
 
     this.videoRef = React.createRef();
+    this.canvasRef = React.createRef();
+
     this.state = {
       streamSource: null,
     }
@@ -31,6 +33,7 @@ class CameraView extends React.Component {
   render() {
     return (
       <div className="CameraView">
+        <canvas className="CameraView-video" ref={this.canvasRef} />
         <video className="CameraView-video" autoPlay={true} ref={this.videoRef}/>
         <button className="CameraView-button">Capture</button>
       </div>
