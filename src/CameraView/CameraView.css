@@ -12,6 +12,12 @@
   flex-direction: column;
 }
 
+.CameraView-viewfinder {
+  max-height: 80%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
 .CameraView-video {
   width: 100%;
 }
