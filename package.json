@@ -2,7 +2,8 @@
   "name": "eipirkka",
   "version": "0.1.0",
   "engines": {
-    "node": "10.14.2"
+    "node": "10.14.2",
+    "npm": "6.7.0"
   },
   "private": true,
   "dependencies": {
