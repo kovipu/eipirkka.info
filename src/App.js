@@ -1,27 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import CameraView from './CameraView/CameraView';
-
-function ResultFooter({ label }) {
-  switch (label) {
-    case 'pirkka3':
-      return (
-        <header className="App-footer App-footer--failure">
-          <div>Pirkka III-olut 4,5%</div>
-          <button className='btn'>Lue lisää</button>
-        </header>
-      )
-    case 'none':
-      return (
-        <header className="App-footer App-footer--success">
-          <div>Ei Pirkka!</div>
-        </header>
-      );
-    default:
-        return <header></header>;
-  }
-}
+import ResultFooter from './ResultFooter/ResultFooter';
 
 class App extends Component {
 
@@ -35,6 +15,12 @@ class App extends Component {
     };
   }
 
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({currentLabel: 'pirkka3'});
+    }, 2000)
+  }
+
   render() {
     const { currentLabel } = this.state;
 
@@ -44,7 +30,7 @@ class App extends Component {
         <div className="App-content">
         <CameraView/>
         </div>
-        <ResultFooter label={'pirkka3'} />
+        <ResultFooter label={currentLabel} />
       </div>
     );
   }

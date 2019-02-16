@@ -16,19 +16,12 @@
   font-weight: 600;
 }
 
-.App-footer {
-  padding: 1rem;
-  font-size: 2rem;
-  background: white;
-  color: black;
-  font-weight: 600;
-}
 
-.App-footer--success {
+.ResultFooter--success {
   /*background: #1ec26b;*/
 }
 
-.App-footer--failure {
+.ResultFooter--failure {
   /*background: #e33a3a;*/
 }
 

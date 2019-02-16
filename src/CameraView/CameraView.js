@@ -6,6 +6,7 @@ class CameraView extends React.Component {
 
   constructor(props) {
     super(props);
+
     this.videoRef = React.createRef();
     this.state = {
       streamSource: null,

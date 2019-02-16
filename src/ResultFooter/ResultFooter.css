@@ -1,0 +1,17 @@
+.ResultFooter {
+  padding: 1rem;
+  font-size: 2rem;
+  background: white;
+  color: black;
+  font-weight: 600;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  transition: all .2s ease-in-out;
+  transform: translateY(-300px);
+}
+
+.ResultFooter--success, .ResultFooter--failure {
+  transform: translateY(0px)
+}
