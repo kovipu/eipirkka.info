@@ -1,6 +1,10 @@
 {
   "name": "eipirkka",
   "version": "0.1.0",
+  "engines": {
+    "node": "10.14.2",
+    "npm": "6.7.0"
+  },
   "private": true,
   "dependencies": {
     "react": "^16.8.2",
@@ -24,7 +28,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "devDependencies": {
-    "eslint": "^5.14.0"
-  }
+  "devDependencies": {}
 }
