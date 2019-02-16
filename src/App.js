@@ -39,7 +39,7 @@ class App extends Component {
     formData.append('image', blop);
 
     console.log(imageData, formData);
-    fetch(process.env.API_URL || 'http://localhost:3001/predict', {
+    fetch(`${process.env.REACT_APP_API_URL || 'http://localhost:3001'}/predict`, {
       method: 'POST',
       body: formData,
       mode: 'cors'
