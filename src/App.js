@@ -93,11 +93,21 @@ class App extends Component {
     )
   }
 
+  getBorderAccent = () => {
+    const { lastResponse } = this.state;
+    if (!lastResponse.displayName) {
+      return '#fd79a8';
+    }
+    return lastResponse.displayName === 'pirkka3'
+      ? '#2ecc71'
+      : '#e74c3c';
+  }
+
   render() {
     const { showDetails } = this.state;
 
     return (
-      <div className="App">
+      <div className="App" style={{borderColor: this.getBorderAccent()}}>
         {this.renderCameraView()}
         <InfoView onClose={this.closeDetails} isHidden={!showDetails} />
       </div>
