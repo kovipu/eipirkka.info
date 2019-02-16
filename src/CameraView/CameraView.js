@@ -62,10 +62,12 @@ class CameraView extends React.Component {
     const { photoTaken } = this.state;
     return (
       <div className="CameraView">
-        <IconButton hidden={!photoTaken} onClick={this.clearPhoto} className="CameraView-clearButton" icon="times" />
-        <canvas hidden={!photoTaken} id="canvasHack" className="CameraView-canvas" ref={this.canvasRef} />
-        <video hidden={photoTaken} className="CameraView-video" autoPlay={true} ref={this.videoRef}/>
-        <div className="CameraView-snapButton">
+        <div className="CameraView-viewfinder">
+          <IconButton hidden={!photoTaken} onClick={this.clearPhoto} className="CameraView-clearButton" icon="times" />
+          <canvas hidden={!photoTaken} id="canvasHack" className="CameraView-canvas" ref={this.canvasRef} />
+          <video hidden={photoTaken} className="CameraView-video" autoPlay={true} ref={this.videoRef} />
+        </div>
+        <div className="CameraView-footer">
           <ShutterButton hidden={photoTaken} onClick={this.takeSnapshot} icon="camera" />
         </div>
       </div>
